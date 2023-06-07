@@ -4,7 +4,7 @@ import './App.css';
 import InputField from './components/InputField';
 import ToDoList from './components/ToDoList';
 import { Todo } from './components/model';
-import { DragDropContext } from 'react-beautiful-dnd';
+import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 
 // let name: string;
 // let age: number | string;
@@ -67,8 +67,39 @@ import { DragDropContext } from 'react-beautiful-dnd';
       }
     }
 
+    const onDragEnd = (result: DropResult) => {
+
+      const {source, destination} = result;
+
+      if (!destination) return;
+
+      if (destination.droppableId === source.droppableId && destination.index === source.index) return;
+
+      let add, 
+      active = todos,
+      complete = completedTodo;
+
+      if (source.droppableId === "Todos_List"){
+        add = active[source.index];
+        active.splice(source.index, 1)
+      } else{
+        add = complete[source.index];
+        complete.splice(source.index, 1)
+      }
+
+      if (destination.droppableId === "Todos_List"){
+        active.splice(destination.index,0,add)
+      }else{
+        complete.splice(destination.index,0,add)
+      }
+
+      setCompletedTodo(complete)
+      setTodos(active)
+
+    }
+
     return (
-      <DragDropContext onDragEnd={()=>{}}>
+      <DragDropContext onDragEnd={onDragEnd}>
         <div className="App">
         <span className="heading">ToDo</span>
         <InputField handleAdd={handleAdd} todo={todo} setTodo={setTodo}/>
