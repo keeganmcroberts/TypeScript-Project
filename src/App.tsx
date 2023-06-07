@@ -4,6 +4,7 @@ import './App.css';
 import InputField from './components/InputField';
 import ToDoList from './components/ToDoList';
 import { Todo } from './components/model';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 // let name: string;
 // let age: number | string;
@@ -54,6 +55,7 @@ import { Todo } from './components/model';
 
     const [todo, setTodo] = useState<string>("")
     const [todos, setTodos] = useState<Todo[]>([])
+    const [completedTodo, setCompletedTodo] = useState<Todo[]>([]);
     console.log("todos list", todos)
 
     const handleAdd = (e: React.FormEvent)=>{
@@ -66,12 +68,15 @@ import { Todo } from './components/model';
     }
 
     return (
-    <div className="App">
-     <span className="heading">ToDo</span>
-     <InputField handleAdd={handleAdd} todo={todo} setTodo={setTodo}/>
-     <ToDoList todos={todos} setTodos={setTodos}/>
-     {/* //auto imported using control + space */} 
-    </div>
+      <DragDropContext onDragEnd={()=>{}}>
+        <div className="App">
+        <span className="heading">ToDo</span>
+        <InputField handleAdd={handleAdd} todo={todo} setTodo={setTodo}/>
+        <ToDoList todos={todos} setTodos={setTodos} completedTodo={completedTodo} setCompletedTodo={setCompletedTodo}/>
+        {/* //auto imported using control + space */} 
+        </div>
+
+      </DragDropContext>
   );
 }
 

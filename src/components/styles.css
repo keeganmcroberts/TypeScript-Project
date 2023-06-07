@@ -24,8 +24,8 @@ margin: 12px;
 border-radius: 50px;
 border: none;
 font-size: 15px;
-background-color: blue;
-color: white;
+background-color: rgb(150, 146, 231);
+color: rgb(49, 10, 245);
 transition: 0.2s all;
 box-shadow: 0 0 10px black;
 cursor: pointer; 
@@ -37,29 +37,52 @@ cursor: pointer;
 
 .input_submit:active{
     transform: scale(0.6);
-    box-shadow: 0 0 10px black;
+    box-shadow: 0 0 10px rgb(7, 13, 71);
 }
 
 
 .input_box:focus{
-    box-shadow:  0 0 10px 1000px rgb(68, 54, 54);
+    box-shadow:  0 0 10px 1000px rgb(3, 2, 42);
     border: none;
+}
+
+.container{
+    display: flex;
+    width: 95%;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .todos{
     display: flex;
-    justify-content: space-evenly;
-    width: 90%;
-    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 15px;
+    width: 47%;
+    border-radius: 5px;
+    background-color: rgb(150, 146, 231)
+}
+
+.remove{
+    background-color: rgb(213, 71, 114);
+}
+
+.todos_heading{
+    font-size: 30px;
+    color: blue;
 }
 
 .todos_single{
     display: flex;
-    width: 28.5%;
     border-radius: 5px;
     padding: 20px;
     margin-top: 15px;
     background-image: url('https://t3.ftcdn.net/jpg/04/36/26/38/360_F_436263813_fnql21lRjX3w2oPx6kGucxpKeOMf4uCa.jpg');
+}
+
+.todos_single:hover{
+    box-shadow: 0 0 5px black;
+    transform: scale(1.03);
 }
 
 .todos_single--text{
@@ -75,22 +98,26 @@ cursor: pointer;
     cursor: pointer;
 }
 
-@media (max-wdith: 1200){
-    .todos_single{
-        width: 40%;
+@media (max-width: 1100px){
+    .todos{
+        width: 45%;
     }
 }
 
-@media (max-wdith: 700px){
+@media (max-width: 700px){
     .todos{
         width: 95%;
+        margin-bottom: 10px;
     }
 
-    .icon{
+    .input{
         width: 95%;
     }
 
-    .todos_single{
-        width: 100%;
+
+    .container{
+        width: 95%;
+        flex-direction: column;
     }
 }
+
