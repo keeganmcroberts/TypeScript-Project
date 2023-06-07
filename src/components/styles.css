@@ -1,0 +1,96 @@
+.input{
+display:flex;
+width:90%;
+position: relative;
+align-items: center ;
+}
+
+.input_box{
+width: 100%;
+border-radius: 50px;
+padding: 20px 30px;
+font-size: 25px;
+border: none;
+transition: 0.2s;
+box-shadow:  inset 0 0 5px black;
+}
+
+.input_submit{
+position: absolute;
+right: 0px;
+width: 50px;
+height: 50px;
+margin: 12px;
+border-radius: 50px;
+border: none;
+font-size: 15px;
+background-color: blue;
+color: white;
+transition: 0.2s all;
+box-shadow: 0 0 10px black;
+cursor: pointer; 
+}
+
+.input_submit:hover{
+    background-color: rgb(98, 98, 246);
+}
+
+.input_submit:active{
+    transform: scale(0.6);
+    box-shadow: 0 0 10px black;
+}
+
+
+.input_box:focus{
+    box-shadow:  0 0 10px 1000px rgb(68, 54, 54);
+    border: none;
+}
+
+.todos{
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    flex-wrap: wrap;
+}
+
+.todos_single{
+    display: flex;
+    width: 28.5%;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 15px;
+    background-image: url('https://t3.ftcdn.net/jpg/04/36/26/38/360_F_436263813_fnql21lRjX3w2oPx6kGucxpKeOMf4uCa.jpg');
+}
+
+.todos_single--text{
+    flex: 1;
+    padding: 5px;
+    border: none;
+    font-size: 20px;
+}
+
+.icon{
+    margin-left: 20px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+@media (max-wdith: 1200){
+    .todos_single{
+        width: 40%;
+    }
+}
+
+@media (max-wdith: 700px){
+    .todos{
+        width: 95%;
+    }
+
+    .icon{
+        width: 95%;
+    }
+
+    .todos_single{
+        width: 100%;
+    }
+}
